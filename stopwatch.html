@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stopwatch Web Application</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  
+  <style>
+    #stopwatch {
+      font-size: 48px;
+      color: #333;
+      text-align: center;
+    }
+    body{
+        height: fit-content;
+        background-image: url(https://wallpapers.com/images/hd/faded-background-dukmpz8g0k0772ho.jpg);
+    }
+    h1{
+      text-align: center;
+      margin: 30px;
+    }
+    button{
+     margin-left:30px;
+    }
+    .button1{
+      text-align: center;
+      margin: 30px;
+    }
+  </style>
+</head>
+<body style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+  <h1 style="margin-top: 200px;">Stopwatch Web Application </h1>
+  <div id="stopwatch"></div>
+<div class="button1">
+
+  <button type="button" class="btn btn-primary" onclick="startStopwatch()">Start</button>
+  <button type="button" class="btn btn-primary" onclick="stopStopwatch()">Stop</button>
+
+</div>
+  <script>
+
+    var start = null;
+    var elapsed = 0;
+    function startStopwatch() {
+      start = new Date();
+      stopwatch = setInterval(function() {
+        var now = new Date();
+        elapsed = now - start;
+        document.getElementById("stopwatch").innerHTML = (elapsed / 1000).toFixed(2) + " Seconds";
+      }, 10);
+    }
+    function stopStopwatch() {
+      clearInterval(stopwatch);
+      document.getElementById("stopwatch").innerHTML = (elapsed / 1000).toFixed(2) + " Seconds";
+    }
+  </script>
+  <footer>
+    <p style="color: yellow; background-color: black; padding: 10px; border-radius: 25px;">&copy; Made by Rajeev Saxena for Prodigy Infotech Web Development Internship</p>
+  </footer>
+</body>
+</html>
